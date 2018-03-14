@@ -12,4 +12,15 @@ server.use(bodyParser.json());
 
 // TODO: write your route handlers here
 
+server.get('/accepted-answer/:soID', function(req, res) {
+  Post
+    .find()
+    .then(posts => {
+      res.status(200).json(posts);
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+})
+
 module.exports = { server };
